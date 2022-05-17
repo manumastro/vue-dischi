@@ -1,10 +1,18 @@
 <template>
   <main>
-      <div id="main-wrapper" class="container d-flex flex-wrap justify-content-between">
+      <div id="main-wrapper" class="container d-flex flex-wrap justify-content-between"
+      v-if="isLoading"
+      >
         <AlbumCards v-for="(album, index) in arrayAlbums" :key="`album-${index}`"
         :albumItem = album
         />
       </div>
+
+      <div class="d-flex justify-content-center"
+      v-else>
+        <LoadingComponent />
+      </div>
+      
   </main>
 </template>
 
@@ -12,14 +20,16 @@
 import axios from 'axios';
 
 import AlbumCards from './AlbumCards.vue';
+import LoadingComponent from './LoadingComponent.vue';
 
 export default {
-  components: { AlbumCards },
+  components: { AlbumCards, LoadingComponent },
   name: 'MainComp',
   data(){
     return{
       myApi: 'https://flynn.boolean.careers/exercises/api/array/music',
       arrayAlbums: [],
+      isLoading: false
     }
   },
   mounted(){
@@ -31,6 +41,7 @@ export default {
       .then( r => {
         console.log(r.data.response);
         this.arrayAlbums = r.data.response;
+        this.isLoading = true;
       })
       .catch( e => {
         console.log(e);
