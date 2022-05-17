@@ -1,6 +1,6 @@
 <template>
   <main>
-    <AlbumCards v-for="(album, index) in albums" :key="`album-${index}`"
+    <AlbumCards v-for="(album, index) in arrayAlbums" :key="`album-${index}`"
     :albumItem = album
     />
   </main>
@@ -26,7 +26,7 @@ export default {
   methods: {
     getApi(){
       axios.get(this.myApi)
-      .then(function (r){
+      .then( r => {
         console.log(r.data.response);
         this.arrayAlbums = r.data.response;
       })
