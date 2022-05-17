@@ -1,9 +1,9 @@
 <template>
   <header class="d-flex justify-content-between">
-    <div id="logo" class="d-flex align-items-center px-3">
-      <img src="../assets/img/spotify-logo.png" alt="">
+    <div id="logo" class="d-flex align-items-center px-4">
+      <a href="#"><img src="../assets/img/spotify-logo.png" alt=""></a>
     </div>
-    <div id="select-item" class="d-flex align-items-center px-3">
+    <div id="select-item" class="d-flex align-items-center px-4">
       <select name="genere" id="">
         <option value="">Seleziona un genere</option>
       </select>

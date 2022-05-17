@@ -1,8 +1,10 @@
 <template>
   <main>
-    <AlbumCards v-for="(album, index) in arrayAlbums" :key="`album-${index}`"
-    :albumItem = album
-    />
+      <div id="main-wrapper" class="container d-flex flex-wrap justify-content-between">
+        <AlbumCards v-for="(album, index) in arrayAlbums" :key="`album-${index}`"
+        :albumItem = album
+        />
+      </div>
   </main>
 </template>
 
@@ -42,5 +44,6 @@ export default {
   main{
     min-height: calc(100vh - 80px);
     background-color: #1e2d3b;
+    padding-top: 70px;
   }
 </style>
