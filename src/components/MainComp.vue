@@ -56,7 +56,7 @@ export default {
   computed:{
     filteredArray(){
       let array = [];
-      if(this.valueToPass === 'null'){
+      if(this.valueToPass === ''){
         array = this.arrayAlbums;
       }else{
         array = this.arrayAlbums.filter(album => {

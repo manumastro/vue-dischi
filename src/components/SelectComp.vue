@@ -4,7 +4,7 @@
     @change="$emit('search', selectedValue)"
     v-model="selectedValue"
     name="genere">
-      <option value="null">Seleziona un genere</option>
+      <option value="">Seleziona un genere</option>
       <option value="Rock">Rock</option>
       <option value="Pop">Pop</option>
       <option value="Metal">Metal</option>
