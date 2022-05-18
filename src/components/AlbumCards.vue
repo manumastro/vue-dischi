@@ -12,7 +12,6 @@ export default {
   name: 'AlbumCards',
   props: {
     albumItem: Object,
-    valueForFilter: String
   }
 }
 </script>

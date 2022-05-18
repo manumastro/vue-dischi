@@ -3,10 +3,9 @@
       <div id="main-wrapper" class="container"
       v-if="isLoading"
       >
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 flex-wrap  justify-content-between">
-          <AlbumCards v-for="(album, index) in arrayAlbums" :key="`album-${index}`"
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 flex-wrap  ">
+          <AlbumCards v-for="(album, index) in filteredArray" :key="`album-${index}`"
         :albumItem = album
-        :valueForFilter = valueToPass
         />
         </div>
       </div>
@@ -32,7 +31,7 @@ export default {
     return{
       myApi: 'https://flynn.boolean.careers/exercises/api/array/music',
       arrayAlbums: [],
-      isLoading: false
+      isLoading: false,
     }
   },
   props:{
@@ -54,6 +53,19 @@ export default {
       })
     }
   },
+  computed:{
+    filteredArray(){
+      let array = [];
+      if(this.valueToPass === 'null'){
+        array = this.arrayAlbums;
+      }else{
+        array = this.arrayAlbums.filter(album => {
+          return album.genre === this.valueToPass;
+        })
+      }
+      return array;
+    }
+  }
 }
 </script>
 

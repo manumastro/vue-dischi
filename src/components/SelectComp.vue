@@ -5,10 +5,10 @@
     v-model="selectedValue"
     name="genere">
       <option value="null">Seleziona un genere</option>
-      <option value="rock">Rock</option>
-      <option value="pop">Pop</option>
-      <option value="metal">Metal</option>
-      <option value="jazz">Jazz</option>
+      <option value="Rock">Rock</option>
+      <option value="Pop">Pop</option>
+      <option value="Metal">Metal</option>
+      <option value="Jazz">Jazz</option>
   </select>
   </div>
 </template>
