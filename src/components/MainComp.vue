@@ -1,11 +1,14 @@
 <template>
   <main>
-      <div id="main-wrapper" class="container d-flex flex-wrap justify-content-between"
+      <div id="main-wrapper" class="container"
       v-if="isLoading"
       >
-        <AlbumCards v-for="(album, index) in arrayAlbums" :key="`album-${index}`"
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 flex-wrap  justify-content-between">
+          <AlbumCards v-for="(album, index) in arrayAlbums" :key="`album-${index}`"
         :albumItem = album
+        :valueForFilter = valueToPass
         />
+        </div>
       </div>
 
       <div class="d-flex justify-content-center"
@@ -32,6 +35,9 @@ export default {
       isLoading: false
     }
   },
+  props:{
+    valueToPass: String
+  },
   mounted(){
       this.getApi();
   },
@@ -39,7 +45,7 @@ export default {
     getApi(){
       axios.get(this.myApi)
       .then( r => {
-        console.log(r.data.response);
+        //console.log(r.data.response);
         this.arrayAlbums = r.data.response;
         this.isLoading = true;
       })

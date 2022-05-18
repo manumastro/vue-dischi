@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HeaderComp />
-    <MainComp />
+    <HeaderComp @search="seeValue"/>
+    <MainComp :valueToPass = valueToPass />
   </div>
 </template>
 
@@ -11,9 +11,19 @@ import MainComp from './components/MainComp.vue'
 
 export default {
   name: 'App',
+  data(){
+    return{
+      valueToPass: ''
+    }
+  },
   components: {
     HeaderComp,
     MainComp,
+  },
+  methods:{
+    seeValue(value){
+      this.valueToPass = value;
+    }
   }
 }
 </script>

@@ -1,19 +1,25 @@
 <template>
   <header class="d-flex justify-content-between">
     <div id="logo" class="d-flex align-items-center px-4">
-      <a href="#"><img src="../assets/img/spotify-logo.png" alt=""></a>
+      <a href="#"><i class="fa-brands fa-spotify"></i></a>
     </div>
     <div id="select-item" class="d-flex align-items-center px-4">
-      <select name="genere" id="">
-        <option value="">Seleziona un genere</option>
-      </select>
+      <SelectComp @search="seeValue" />
     </div>
   </header>
 </template>
 
 <script>
+import SelectComp from './SelectComp.vue'
+
 export default {
-  name: 'HeaderComp'
+  components: { SelectComp },
+  name: 'HeaderComp',
+  methods:{
+    seeValue(value){
+      this.$emit('search', value);
+    }
+  }
 }
 </script>
 
@@ -23,15 +29,16 @@ export default {
     background-color: #2e3a46;
     #logo{
       height: 100%;
-      img{
-        height: 50px;
+      a{
+        color: green;
+        i{
+          font-size: 50px;
+        }
       }
     }
     #select-item{
       height: 100%;
-      select{
-        padding: 8px 15px;
-      }
+      
     }
   }
 </style>
