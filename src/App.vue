@@ -1,7 +1,11 @@
 <template>
   <div>
-    <HeaderComp @search="seeValue"/>
-    <MainComp :valueToPass = valueToPass />
+    <HeaderComp
+    @searchArtist="seeArtist" 
+    @search="seeValue"/>
+    <MainComp
+    :artistToPass = artistToPass
+    :valueToPass = valueToPass />
   </div>
 </template>
 
@@ -13,7 +17,8 @@ export default {
   name: 'App',
   data(){
     return{
-      valueToPass: ''
+      valueToPass: '',
+      artistToPass: '',
     }
   },
   components: {
@@ -23,6 +28,9 @@ export default {
   methods:{
     seeValue(value){
       this.valueToPass = value;
+    },
+    seeArtist(artist){
+      this.artistToPass = artist;
     }
   }
 }

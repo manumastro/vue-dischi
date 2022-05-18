@@ -4,20 +4,26 @@
       <a href="#"><i class="fa-brands fa-spotify"></i></a>
     </div>
     <div id="select-item" class="d-flex align-items-center px-4">
-      <SelectComp @search="seeValue" />
+      <SelectGenre @search="seeValue" />
+      <SelectArtist @searchArtist="seeArtist"/>
     </div>
   </header>
 </template>
 
 <script>
-import SelectComp from './SelectComp.vue'
+import SelectGenre from './SelectGenre.vue'
+import SelectArtist from './SelectArtist.vue';
 
 export default {
-  components: { SelectComp },
+  components: { SelectGenre, SelectArtist },
   name: 'HeaderComp',
   methods:{
     seeValue(value){
       this.$emit('search', value);
+    },
+    seeArtist(artist){
+      console.log(artist);
+      this.$emit('searchArtist', artist);
     }
   }
 }

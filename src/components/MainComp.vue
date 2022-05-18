@@ -35,7 +35,8 @@ export default {
     }
   },
   props:{
-    valueToPass: String
+    valueToPass: String,
+    artistToPass: String
   },
   mounted(){
       this.getApi();
@@ -55,16 +56,25 @@ export default {
   },
   computed:{
     filteredArray(){
-      let array = [];
-      if(this.valueToPass === ''){
-        array = this.arrayAlbums;
-      }else{
-        array = this.arrayAlbums.filter(album => {
+      let arrayToFilter = [];
+      if(this.valueToPass != '' && this.artistToPass === ''){
+        arrayToFilter = this.arrayAlbums.filter(album => {
           return album.genre === this.valueToPass;
         })
+      }else if(this.valueToPass === '' && this.artistToPass != ''){
+        arrayToFilter = this.arrayAlbums.filter(album => {
+          return album.author === this.artistToPass;
+        })
+      }else if(this.valueToPass != '' && this.artistToPass != ''){
+        arrayToFilter = this.arrayAlbums.filter(album => {
+          return album.author === this.artistToPass && album.author === this.artistToPass;
+        })
+      }else if(this.valueToPass === '' && this.artistToPass === ''){
+        arrayToFilter = this.arrayAlbums;
       }
-      return array;
+      return arrayToFilter;
     }
+    
   }
 }
 </script>

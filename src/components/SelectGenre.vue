@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'SelectComp',
+  name: 'SelectGenre',
   data(){
     return{
       selectedValue: ''
